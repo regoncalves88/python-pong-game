@@ -24,8 +24,12 @@ screen.onkey(right_paddle.move_down, "Down")
 game_on = True
 
 while game_on:
-    ball.move()
     sleep(0.1)
     screen.update()
+    ball.move()
+
+    # Hit the upper and lower walls
+    if ball.ycor() > 280 or ball.ycor() < -280:
+        ball.bounce_wall()
 
 screen.exitonclick()
